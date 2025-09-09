@@ -1,23 +1,40 @@
-💻 Usage Guide
-Upload Resume: Click the "Choose a Resume File" button and upload a .pdf or .txt resume document.
-View Content: The resume text content will appear in a text area for review.
-Analyze: Click the "Analyze Resume" button. A spinner will appear as the text is vectorized using DistilBERT and passed through the classifier.
-Review Results: The application will display:
-The Top 3 Suggested Job Categories with a visual confidence bar chart.
-A list of key technical skills detected within the resume text.
-🗓 Project Development Timeline Summary
-This project was structured across a four-week development cycle:
-Week	Focus Area	Technologies
-Week 1	Data Preparation & Baseline Features	NLTK, Spacy, TF-IDF
-Week 2	Baseline Modeling & Evaluation	Scikit-learn (Naive Bayes, SVM, Logistic Regression)
-Week 3	Model Upgrade	DistilBERT (Contextual Embeddings, GPU optimization)
-Week 4	Final Deployment & Presentation	Streamlit, Joblib (Model Persistence)
-🧠 Model Details
-The final classification system relies on a two-step process:
-Feature Generation (DistilBERT): The resume text is tokenized and passed through a pre-trained DistilBERT model. The output tokens are averaged to create a single, high-density vector (embedding) that captures the semantic meaning and context of the entire resume.
-Classification (Logistic Regression): A standard Logistic Regression model is trained on these high-quality embeddings to predict the job category. This combination provides excellent accuracy and generalization capability.
-🔮 Future Enhancements
-Fine-tuning BERT: Instead of just using BERT embeddings as features, fine-tune the BERT model itself for the classification task for potentially higher accuracy.
-Custom Skill Extraction: Integrate a more advanced Named Entity Recognition (NER) model (e.g., via Spacy) for reliable and customizable skill extraction, rather than relying on a static keyword list.
-User Feedback Loop: Implement a simple database to store user feedback on predictions, allowing the model to be retrained periodically with new, validated data.
-Deployment Scaling: Migrate the Streamlit app to a cloud platform (e.g., AWS EC2 or Streamlit Cloud) for public access and scalable performance.
+**💻 How to Use the Application**
+
+**File Upload:** Use the "Choose a Resume File" button to select and upload your resume in .pdf or .txt format.
+
+**Content Review:** Once uploaded, your resume text will display in a preview area for verification.
+
+**Processing:** Press the "Analyze Resume" button to initiate analysis. A loading indicator will show while the system processes your text using DistilBERT technology and runs it through the classification algorithm.
+
+**Results Display:** The system will present:
+- Three recommended job categories ranked by confidence level, shown with visual confidence metrics
+- Identified technical skills found throughout your resume
+
+**🗓 Development Timeline Overview**
+
+The project followed a structured four-week development approach:
+
+| Timeframe | Primary Focus | Key Technologies |
+|-----------|---------------|------------------|
+| Week 1 | Data Processing & Foundation | NLTK, Spacy, TF-IDF |
+| Week 2 | Initial Model Development & Testing | Scikit-learn (Naive Bayes, SVM, Logistic Regression) |
+| Week 3 | Advanced Model Implementation | DistilBERT (Contextual Embeddings, GPU optimization) |
+| Week 4 | Production Deployment & Demo | Streamlit, Joblib (Model Persistence) |
+
+**🧠 Technical Architecture**
+
+The classification system operates through a dual-stage approach:
+
+**Embedding Generation (DistilBERT):** Resume content undergoes tokenization and processing through a pre-trained DistilBERT model. Token outputs are consolidated into a comprehensive vector representation that encodes the semantic context and meaning of the complete resume.
+
+**Category Prediction (Logistic Regression):** A trained Logistic Regression classifier processes these semantic embeddings to determine job category predictions. This hybrid approach delivers strong accuracy while maintaining robust generalization performance.
+
+**🔮 Planned Improvements**
+
+**Advanced BERT Integration:** Move beyond using BERT as a feature extractor to fine-tuning the entire BERT architecture specifically for classification tasks, potentially boosting prediction accuracy.
+
+**Enhanced Skill Detection:** Replace the current keyword-based approach with sophisticated Named Entity Recognition models (such as advanced Spacy implementations) for more precise and adaptable skill identification.
+
+**Interactive Learning System:** Develop a feedback mechanism with database integration to capture user validation of predictions, enabling continuous model improvement through periodic retraining cycles.
+
+**Cloud Infrastructure:** Transition from local Streamlit deployment to cloud-based hosting (AWS EC2 or Streamlit Cloud) to enable broader public access and improved scalability.
